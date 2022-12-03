@@ -66,3 +66,5 @@ export const deletePost = async(req, res) => {
         
     }
 }
+
+//like / dislike a post
