@@ -32,7 +32,11 @@ export const updatePost = async(req, res) =>{
 
     try {
         const post = await PostModel.findById(postId)
-        
+        if(post.userId === userId)
+        {
+            await post.updateOne ( {$set: req.body})
+            res.status(200).json("Post Updated")
+        }
     } catch (error) {
         res.status(500).json(error)
     }
